@@ -12,5 +12,41 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
+  const charMap = str => {
+    const map = new Map();
 
+    // Заменить на .split('') ?
+    [...str]
+      .map(char => char.toLowerCase())
+      .forEach(char => {
+        if (!map.has(char)) {
+          map.set(char, 1);
+        } else {
+          const count = map.get(char);
+
+          map.set(char, count + 1);
+        }
+      });
+
+    return map;
+  };
+
+  const equalMaps = (a, b) => {
+    if (a.size !== b.size) {
+      return false;
+    }
+
+    for (const key of a.keys()) {
+      if (a.get(key) !== b.get(key)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const charsFirst = charMap(first);
+  const charsSecond = charMap(second);
+
+  return equalMaps(charsFirst, charsSecond);
 }

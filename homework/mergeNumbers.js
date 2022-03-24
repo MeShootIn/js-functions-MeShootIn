@@ -9,8 +9,18 @@
  * mergeNumbers(15334232) === 5
  * mergeNumbers(50349814743854) === 2
  *
- * @param number
+ * @param {number} number
  */
 export function mergeNumbers(number) {
+  let result = number;
 
+  const digitSum = num => (`${num}`)
+    .split('')
+    .reduce((sum, digit) => sum + (+digit), 0);
+
+  while (result >= 10) {
+    result = digitSum(result);
+  }
+
+  return result;
 }

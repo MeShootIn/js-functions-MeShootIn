@@ -21,5 +21,30 @@
  * @return {boolean}
  */
 export function isIsomorphic(left, right) {
+  if (left.length !== right.length) {
+    return false;
+  }
 
+  const map = new Map();
+  const set = new Set();
+
+  for (let i = 0; i < left.length; i++) {
+    const charLeft = left[i];
+    const charRight = right[i];
+
+    if (map.has(charLeft)) {
+      if (map.get(charLeft) !== charRight) {
+        return false;
+      }
+    } else {
+      if (set.has(charRight)) {
+        return false;
+      }
+
+      map.set(charLeft, charRight);
+      set.add(charRight);
+    }
+  }
+
+  return true;
 }

@@ -1,3 +1,5 @@
+// TODO https://www.freecodecamp.org/news/how-to-clone-an-array-in-javascript-1d3183468f6a/
+
 /**
  * Напишите функцию reduceMap(fn, input), создающую новый
  * массив с результатами вызова функции fn на каждом
@@ -12,7 +14,7 @@
  * @param {*[]}      input массив значений
  */
 export function reduceMap(fn, input) {
-
+  return input.reduce((result, elem) => [...result, fn(elem)], []);
 }
 
 /**
@@ -26,5 +28,13 @@ export function reduceMap(fn, input) {
  * @param {*[]}      input массив значений
  */
 export function reduceFilter(fn, input) {
+  return input.reduce((result, elem) => {
+    const copy = [...result];
 
+    if (fn(elem)) {
+      copy.push(elem);
+    }
+
+    return copy;
+  }, []);
 }
