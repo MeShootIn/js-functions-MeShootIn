@@ -1,4 +1,3 @@
-// TODO  прописать биекцию для изоморфизма
 /**
  * Напишите функцию isIsomorphic(left, right), определяющую,
  * являются ли строки left и right изоморфными.
@@ -28,7 +27,7 @@ export function isIsomorphic(left, right) {
   const map = new Map();
   const set = new Set();
 
-  for (let i = 0; i < left.length; i++) {
+  for (let i = 0; i < left.length; ++i) {
     const charLeft = left[i];
     const charRight = right[i];
 

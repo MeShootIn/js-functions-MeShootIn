@@ -14,8 +14,7 @@
 export function mergeNumbers(number) {
   let result = number;
 
-  const digitSum = num => (`${num}`)
-    .split('')
+  const digitSum = num => [...`${num}`]
     .reduce((sum, digit) => sum + (+digit), 0);
 
   while (result >= 10) {

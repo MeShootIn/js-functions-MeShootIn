@@ -15,7 +15,6 @@ export function anagram(first, second) {
   const charMap = str => {
     const map = new Map();
 
-    // Заменить на .split('') ?
     [...str]
       .map(char => char.toLowerCase())
       .forEach(char => {

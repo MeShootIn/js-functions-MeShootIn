@@ -35,11 +35,11 @@ export function getIntersection(first, second) {
 
     a
       .forEach((countA, elemA) => {
-        const countB = b.get(elemA);
-
-        if (typeof countB === 'undefined') {
+        if (!b.has(elemA)) {
           return;
         }
+
+        const countB = b.get(elemA);
 
         result.set(elemA, Math.min(countA, countB));
       });

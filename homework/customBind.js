@@ -14,5 +14,7 @@
  * @return {Function} функция с нужным контекстом
  */
 export function customBind(func, context, ...args) {
-
+  return (...moreArgs) => {
+    func.apply(context, [...args, ...moreArgs]);
+  };
 }
