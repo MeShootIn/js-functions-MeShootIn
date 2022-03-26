@@ -1,3 +1,5 @@
+import { countMap } from './helpers';
+
 /**
  * Напишите функцию meanMode(numbers), принимающую массив чисел numbers
  * и возвращающую true, если среднее значение числового ряда равно
@@ -21,23 +23,6 @@
  * @return {boolean}
  */
 export function meanMode(numbers) {
-  const countMap = arr => {
-    const map = new Map();
-
-    arr
-      .forEach(elem => {
-        if (!map.has(elem)) {
-          map.set(elem, 1);
-        } else {
-          const count = map.get(elem);
-
-          map.set(elem, count + 1);
-        }
-      });
-
-    return map;
-  };
-
   const avg = arr => arr.reduce((sum, elem) => sum + elem, 0) / arr.length;
 
   const countNumbers = countMap(numbers);

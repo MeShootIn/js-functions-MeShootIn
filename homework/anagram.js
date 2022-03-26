@@ -1,3 +1,5 @@
+import { charMap } from './helpers';
+
 /**
  * Напишите функцию anagram(first, second), определяющую,
  * являются ли переданные строки first и second анаграммами.
@@ -12,24 +14,6 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
-  const charMap = str => {
-    const map = new Map();
-
-    [...str]
-      .map(char => char.toLowerCase())
-      .forEach(char => {
-        if (!map.has(char)) {
-          map.set(char, 1);
-        } else {
-          const count = map.get(char);
-
-          map.set(char, count + 1);
-        }
-      });
-
-    return map;
-  };
-
   const equalMaps = (a, b) => {
     if (a.size !== b.size) {
       return false;

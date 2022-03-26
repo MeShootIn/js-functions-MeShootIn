@@ -1,3 +1,5 @@
+import { countMap } from './helpers';
+
 /**
  * Напишите функцию getIntersection(first, second), возвращающую
  * массив из общих значений массивов first и second.
@@ -13,23 +15,6 @@
  * @return {number[]} массив значений, отсортированный по возрастанию
  */
 export function getIntersection(first, second) {
-  const countMap = arr => {
-    const map = new Map();
-
-    arr
-      .forEach(elem => {
-        if (!map.has(elem)) {
-          map.set(elem, 1);
-        } else {
-          const count = map.get(elem);
-
-          map.set(elem, count + 1);
-        }
-      });
-
-    return map;
-  };
-
   const intersectionMap = (a, b) => {
     const result = new Map();
 
