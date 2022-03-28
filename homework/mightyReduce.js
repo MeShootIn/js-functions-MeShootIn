@@ -29,12 +29,10 @@ export function reduceMap(fn, input) {
  */
 export function reduceFilter(fn, input) {
   return input.reduce((result, elem) => {
-    const copy = [...result];
-
     if (fn(elem)) {
-      copy.push(elem);
+      result.push(elem);
     }
 
-    return copy;
+    return result;
   }, []);
 }
